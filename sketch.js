@@ -22,8 +22,12 @@ weight = 3;
 
 function draw()
 {
-
+  if(mouseIsPressed)
+  {
+    background(0, 20);
+  }else{
   background(0, 50);
+}
   strokeWeight(weight);
 
   stroke(255,0,0);
@@ -41,7 +45,7 @@ function draw()
   textSize(30);
 
   text('마우스 위치', mouseX-50,mouseY);
-
+/*
   if(mouseIsPressed)
   {
     if(mouseButton == LEFT)
@@ -53,5 +57,18 @@ function draw()
       weight--;
     }
   }
+*/
+}
 
+function mouseWheel(event) {
+  print(event.delta);
+  //move the square according to the vertical scroll amount
+  if(event.delta > 0)
+  {
+    weight ++;
+  }
+  if(event.delta < 0)
+  {
+    weight --;
+  }
 }
