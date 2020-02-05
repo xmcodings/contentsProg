@@ -1,5 +1,5 @@
 # contentsProg
-##just Excersice
+## just Excersice
 
 
-###artistic movement of Javascript
+### artistic movement of Javascript
