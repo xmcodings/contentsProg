@@ -4,10 +4,12 @@ var height;
 var width;
 var rainArray;
 let personImg;
+var clickCount;
+var isSnow
 
 function setup()
 {
-
+  clickCount = 0;
   var cnv = createCanvas(windowWidth-20, 500);
   height = 500;
   width = windowWidth - 20;
@@ -16,7 +18,7 @@ function setup()
   //cnv.parent('sketch-holder');
   imageMode(CORNERS);
   background(255, 255, 255);
-
+  isSnow = false;
 
   rainArray = [];
   
@@ -25,7 +27,6 @@ function setup()
 function draw()
 {
   background(0);
-  
   
   
   image(personImg, width/4, height/2, width/4 * 3, height - 5);
@@ -48,20 +49,32 @@ function draw()
       rainArray.splice(i, 1); 
     }
  }
+ if(isSnow && rainArray.length < 30)
+ {
+  var newRainDrop = new RainDrop(Math.random()*width, 0);
+  rainArray.push(newRainDrop);
+ }
  //console.log("size = " + rainArray.length);
  
 
 }
 
+
 function mousePressed()
 {
   //div = createButton('Hello ').size(100, 15);
   //div.html('World', true);
-
-  var newRainDrop = new RainDrop(Math.random()*width, 0);
-  rainArray.push(newRainDrop);
-  //console.log("Mouse Pressed");
-
+  clickCount = clickCount + 1;
+  if(clickCount > 20)
+  {
+    isSnow = true;
+  }
+  else{
+    var newRainDrop = new RainDrop(Math.random()*width, 0);
+    rainArray.push(newRainDrop);
+    //console.log("Mouse Pressed");  
+  }
+  
 }
 
 function getRandomInt(min, max) {
@@ -72,7 +85,6 @@ function getRandomInt(min, max) {
 
 class RainDrop
 {
-
   constructor(xpos, ypos)
   {
     this.xpos = xpos;
