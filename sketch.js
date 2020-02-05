@@ -6,6 +6,7 @@ var rainArray;
 let personImg;
 var clickCount;
 var isSnow
+var snowDensity;
 
 function setup()
 {
@@ -49,13 +50,15 @@ function draw()
       rainArray.splice(i, 1); 
     }
  }
- if(isSnow && rainArray.length < 30)
- {
-  var newRainDrop = new RainDrop(Math.random()*width, 0);
-  rainArray.push(newRainDrop);
- }
- //console.log("size = " + rainArray.length);
  
+
+ 
+ 
+ //console.log("size = " + rainArray.length);
+ snowDensity = document.getElementById("myRange");
+ console.log("size = " + snowDensity.value);
+
+ var snowGen = setInterval(generateSnow, 500);
 
 }
 
@@ -82,6 +85,18 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
 }
+
+function generateSnow()
+{
+  if(isSnow && rainArray.length < snowDensity.value)
+  {
+   var newRainDrop = new RainDrop(Math.random()*width, 0);
+   rainArray.push(newRainDrop);
+  }
+}
+
+
+
 
 class RainDrop
 {
