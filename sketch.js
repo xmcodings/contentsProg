@@ -1,5 +1,4 @@
 
-let div;
 var height;
 var width;
 var rainArray;
@@ -65,10 +64,9 @@ function draw()
 
 function mousePressed()
 {
-  //div = createButton('Hello ').size(100, 15);
-  //div.html('World', true);
+  
   clickCount = clickCount + 1;
-  if(clickCount > 20)
+  if(clickCount > 4)
   {
     isSnow = true;
   }
@@ -79,6 +77,15 @@ function mousePressed()
   }
   
 }
+function mouseClicked()
+{
+  if(clickCount < 4)
+  {
+    let btn = document.createElement("BUTTON");
+    btn.innerHTML = 'World';
+    document.getElementById("ButtonHolder").appendChild(btn);
+  }
+}
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -88,13 +95,14 @@ function getRandomInt(min, max) {
 
 function generateSnow()
 {
+
   if(isSnow && rainArray.length < snowDensity.value)
   {
    var newRainDrop = new RainDrop(Math.random()*width, 0);
    rainArray.push(newRainDrop);
   }
-}
 
+}
 
 
 
@@ -139,6 +147,4 @@ class RainDrop
       this.isOffSight = true;
     }
   }
-
-
 }
