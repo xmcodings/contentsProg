@@ -23,6 +23,24 @@ h1  {
     max-width: 50%;
     height:auto;
 }
+#dbtn1{
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+#dbtn2{
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+#dbtn3{
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+#ButtonHolder{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
 .slidecontainer{
   width: 100%;

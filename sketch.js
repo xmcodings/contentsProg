@@ -83,6 +83,7 @@ function mouseClicked()
   {
     let btn = document.createElement("BUTTON");
     btn.innerHTML = 'World';
+    btn.id = "dbtn" + clickCount;
     document.getElementById("ButtonHolder").appendChild(btn);
   }
 }
